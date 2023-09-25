@@ -1,6 +1,9 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from '~/pages/Home';
-import Product from '~/pages/Product';
+import Ipad from './pages/Ipad';
+import Iphone from './pages/Iphone';
+import Mac from './pages/Mac';
+import Contact from './pages/Contact';
 import DefaultLayout from './components/Layout/DefaultLayout';
 
 function App() {
@@ -17,10 +20,34 @@ function App() {
                         }
                     />
                     <Route
-                        path="/product"
+                        path="/iphone"
                         element={
                             <DefaultLayout>
-                                <Product />
+                                <Iphone />
+                            </DefaultLayout>
+                        }
+                    />
+                    <Route
+                        path="/ipad"
+                        element={
+                            <DefaultLayout>
+                                <Ipad />
+                            </DefaultLayout>
+                        }
+                    />
+                    <Route
+                        path="/mac"
+                        element={
+                            <DefaultLayout>
+                                <Mac />
+                            </DefaultLayout>
+                        }
+                    />
+                    <Route
+                        path="/contact"
+                        element={
+                            <DefaultLayout>
+                                <Contact />
                             </DefaultLayout>
                         }
                     />

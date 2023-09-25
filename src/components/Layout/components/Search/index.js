@@ -13,14 +13,34 @@ function Search() {
     const [searchValue, setSearchValue] = useState('');
     const [searchResult, setSearchResult] = useState([]);
     const [showResult, setShowResult] = useState(true);
+    const [loading, setLoading] = useState(false);
 
     const inputRef = useRef();
 
     useEffect(() => {
-        setTimeout(() => {
-            setSearchResult([1, 2, 3]);
-        }, 0);
-    }, []);
+        if (!searchValue.trim()) {
+            setSearchResult([]);
+            return;
+        }
+
+        setLoading(true);
+        fetch(`http://localhost:3000/data?q=${encodeURIComponent(searchValue)}`)
+            .then(function (res) {
+                if (res.status !== 200) {
+                    console.log('Lỗi, mã lỗi ' + res.status);
+                    return;
+                }
+                // parse response data
+                res.json().then((data) => {
+                    console.log(data);
+                    setSearchResult(data);
+                    setLoading(false);
+                });
+            })
+            .catch((err) => {
+                console.log('Error :-S', err);
+            });
+    }, [searchValue]);
 
     const handleClear = () => {
         setSearchValue('');
@@ -40,10 +60,9 @@ function Search() {
                 <div className={cx('search-result')} tabIndex="-1" {...attrs}>
                     <PopperWrapper>
                         <h4 className={cx('search-title')}>Accounts</h4>
-                        <AccountItem />
-                        <AccountItem />
-                        <AccountItem />
-                        <AccountItem />
+                        {searchResult.map((result) => (
+                            <AccountItem key={result.id} data={result} />
+                        ))}
                     </PopperWrapper>
                 </div>
             )}
@@ -61,7 +80,7 @@ function Search() {
                     onChange={(e) => setSearchValue(e.target.value)}
                     onFocus={() => setShowResult(true)}
                 />
-                {!!searchValue && (
+                {!!searchValue && !loading && (
                     <button className={cx('clear-btn')} onClick={handleClear}>
                         <FontAwesomeIcon icon={faXmark} />
                     </button>

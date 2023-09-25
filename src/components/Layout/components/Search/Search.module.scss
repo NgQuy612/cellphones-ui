@@ -1,6 +1,11 @@
 .search,
 .search-result {
     width: 561px;
+    -ms-overflow-style: none; /* khai báo sử dụng Internet Explorer, Edge */
+    scrollbar-width: none;
+    ::-webkit-scrollbar {
+        display: none; /* cho Chrome, Safari, and Opera */
+    }
 }
 
 .search-title {
