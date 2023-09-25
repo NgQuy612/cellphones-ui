@@ -11,58 +11,28 @@
 .inner {
     height: 100%;
     width: 1600px;
-    background-color: #ae9595;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
 .logo {
-}
-.search {
-    width: 361px;
-    height: 46px;
-    display: flex;
-    background-color: #959595;
-    border-radius: 92px;
-    border: 1.5px solid transparent;
-
-    input {
-        flex: 1;
-        color: #828282;
-        font-size: 1.6rem;
-
-        padding: 12px 0;
-        background-color: transparent;
-    }
-
-    &:focus-within {
-        border-color: rgba(22, 24, 35, 0.2);
+    padding-right: 180px;
+    img {
+        max-width: 200px;
+        max-height: 48px;
     }
 }
-.clear-btn {
-    width: 52px;
-    height: 100%;
-    border-radius: 92px;
-    background-color: transparent;
-    &:hover {
-        cursor: pointer;
-    }
 
-    &:active {
-        background-color: 1.5px solid rgba(22, 24, 35, 0.06);
+.category {
+    padding-left: 40px;
+    * {
+        padding: 10px 20px;
+        font-size: 2.2rem;
+        color: rgb(255, 255, 255);
+        line-height: 25px;
     }
 }
-.search-btn {
-    width: 52px;
-    height: 100%;
-    border-radius: 92px;
-    background-color: transparent;
-    &:hover {
-        cursor: pointer;
-    }
 
-    &:active {
-        background-color: rgba(22, 24, 35, 0.06);
-    }
+.item-iphone {
 }

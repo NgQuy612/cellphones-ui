@@ -13,6 +13,7 @@
 
 html {
     font-size: 62.5%;
+    background-color: #3e3e3f;
 }
 
 body {
@@ -30,6 +31,6 @@ input,
 }
 
 a[href] {
-    color: var(--text-color);
+    //color: var(--text-color);
     text-decoration: none;
 }
