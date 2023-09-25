@@ -22,8 +22,42 @@ function Footer() {
                     </Link>
                 </div>
                 <div className={cx('container')}>
-                    <div className={cx('contact')}></div>
-                    <div className={cx('category')}></div>
+                    <div className={cx('contact')}>
+                        <h3 className={cx('title')}>Tổng đài</h3>
+                        <ul className={cx('list-contact')}>
+                            <li className={cx('item-contact')}>Mua hàng</li>
+                            <li className={cx('item-contact')}>\Chính sách xử lý dữ liệu cá nhân</li>
+                            <li className={cx('item-contact')}>\Chính sách xử lý dữ liệu cá nhân</li>
+                            <li className={cx('item-contact')}>\Chính sách xử lý dữ liệu cá nhân</li>
+                        </ul>
+                    </div>
+                    <div className={cx('contact')}>
+                        <h3 className={cx('title')}>Tổng đài</h3>
+                        <ul className={cx('list-contact')}>
+                            <li className={cx('item-contact')}>Mua hàng</li>
+                            <li className={cx('item-contact')}>\Chính sách xử lý dữ liệu cá nhân</li>
+                            <li className={cx('item-contact')}>\Chính sách xử lý dữ liệu cá nhân</li>
+                            <li className={cx('item-contact')}>\Chính sách xử lý dữ liệu cá nhân</li>
+                        </ul>
+                    </div>
+                    <div className={cx('contact')}>
+                        <h3 className={cx('title')}>Tổng đài</h3>
+                        <ul className={cx('list-contact')}>
+                            <li className={cx('item-contact')}>Mua hàng</li>
+                            <li className={cx('item-contact')}>\Chính sách xử lý dữ liệu cá nhân</li>
+                            <li className={cx('item-contact')}>\Chính sách xử lý dữ liệu cá nhân</li>
+                            <li className={cx('item-contact')}>\Chính sách xử lý dữ liệu cá nhân</li>
+                        </ul>
+                    </div>
+                    <div className={cx('contact')}>
+                        <h3 className={cx('title')}>Tổng đài</h3>
+                        <ul className={cx('list-contact')}>
+                            <li className={cx('item-contact')}>Mua hàng</li>
+                            <li className={cx('item-contact')}>\Chính sách xử lý dữ liệu cá nhân</li>
+                            <li className={cx('item-contact')}>\Chính sách xử lý dữ liệu cá nhân</li>
+                            <li className={cx('item-contact')}>\Chính sách xử lý dữ liệu cá nhân</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </footer>
