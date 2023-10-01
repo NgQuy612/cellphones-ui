@@ -30,6 +30,27 @@
 .container {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    //  align-items: center;
 }
 
+.contact-social {
+    padding: 0 20px;
+}
+
+.title-social {
+    color: #888;
+    font-size: 2.2rem;
+}
+
+.icon-social {
+    padding-top: 10px;
+    width: 200px;
+    display: flex;
+    justify-content: space-between;
+
+    a {
+        font-size: 3.2rem;
+        color: #fff;
+        cursor: pointer;
+    }
+}
