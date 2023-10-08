@@ -1,0 +1,32 @@
+.wrapper {
+    padding-top: 70px;
+}
+
+.box-card {
+    max-width: 1600px;
+    margin: 30px 0;
+}
+
+.box-title-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 100px 0 20px 0;
+}
+
+.icon-title-card {
+    color: #fff;
+    font-size: 4.2rem;
+    margin: 0 10px 7px 0;
+}
+
+.title-card {
+    color: #fff;
+    font-size: 4.2rem;
+    font-weight: 400;
+}
+
+.list-item-card {
+    display: flex;
+    flex-wrap: wrap;
+}

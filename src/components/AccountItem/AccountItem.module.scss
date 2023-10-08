@@ -1,0 +1,36 @@
+.wrapper {
+    display: flex;
+    align-items: center;
+    padding: 6px 16px;
+    cursor: pointer;
+
+    &:hover {
+        background: rgba(22, 24, 35, 0.03);
+    }
+}
+
+.img_module {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+}
+
+.info {
+    margin-left: 12px;
+}
+
+.name {
+    font-size: 1.6rem;
+    color: rgba(10, 10, 10, 0.5);
+}
+
+.price {
+    color: #000;
+    font-size: 1.8rem;
+    font-weight: 500;
+}
+
+.hot {
+    font-size: 1.6rem;
+    color: rgb(255 159 0);
+}

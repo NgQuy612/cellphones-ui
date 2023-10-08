@@ -1,0 +1,25 @@
+.contact {
+    color: white;
+    padding: 0 20px;
+}
+
+.title {
+    // color: red;
+    font-size: 2.2rem;
+    line-height: 2;
+    padding: 0 0 8px;
+    font-weight: 500;
+}
+
+.list-contact {
+    list-style: none;
+}
+.item-contact {
+    color: #ffff;
+    font-size: 2rem;
+    line-height: 2;
+    padding: 0 0 8px;
+    &:hover {
+        color: #2817c6;
+    }
+}
