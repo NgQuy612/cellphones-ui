@@ -9,10 +9,9 @@
     }
 }
 
-.avatar {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
+.img_module {
+    width: 60px;
+    height: 60px;
     object-fit: cover;
 }
 
@@ -22,15 +21,16 @@
 
 .name {
     font-size: 1.6rem;
+    color: rgba(10, 10, 10, 0.5);
+}
+
+.price {
+    color: #000;
+    font-size: 1.8rem;
     font-weight: 500;
 }
 
-.check {
-    margin-left: 6px;
-    color: rgb(32, 213, 236);
-}
-
-.username {
-    font-size: 1.4rem;
-    color: rgba(22, 24, 35, 0.5);
+.hot {
+    font-size: 1.6rem;
+    color: rgb(255 159 0);
 }

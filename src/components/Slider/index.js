@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 import { SliderData } from './SliderData';
 import styles from './Slider.module.scss';
 import classNames from 'classnames/bind';
@@ -45,12 +45,7 @@ export default function Silder({ slides }) {
                 return (
                     <div className={index === current ? cx('slide active') : cx('slide')} key={index}>
                         {index === current && (
-                            <img
-                                width={windowSize.innerWidth}
-                                src={slide.image}
-                                alt="travel image"
-                                className={cx('image')}
-                            />
+                            <img width={windowSize.innerWidth} src={slide.image} alt="" className={cx('image')} />
                         )}
                     </div>
                 );

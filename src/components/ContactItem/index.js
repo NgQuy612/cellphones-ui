@@ -9,9 +9,10 @@ function Contact({ title, items }) {
         <div className={cx('contact')}>
             <h3 className={cx('title')}>{title}</h3>
             <ul className={cx('list-contact')}>
-                {items.map((item) => (
+                {items.map((item, index) => (
                     <li>
-                        <Link to={item.to} className={cx('item-contact')} key={item.id}>
+                        <Link to={item.to} className={cx('item-contact')} key={index}>
+                            
                             {item.value}
                         </Link>
                     </li>

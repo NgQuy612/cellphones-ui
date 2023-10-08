@@ -3,7 +3,7 @@ import Home from '~/pages/Home';
 import Ipad from './pages/Ipad';
 import Iphone from './pages/Iphone';
 import Mac from './pages/Mac';
-import Contact from './pages/Contact';
+import Watch from './pages/Watch';
 import DefaultLayout from './components/Layout/DefaultLayout';
 
 function App() {
@@ -44,10 +44,10 @@ function App() {
                         }
                     />
                     <Route
-                        path="/contact"
+                        path="/watch"
                         element={
                             <DefaultLayout>
-                                <Contact />
+                                <Watch />
                             </DefaultLayout>
                         }
                     />

@@ -69,11 +69,11 @@ function Header() {
                     <NavLink className={cx('item')} to="/ipad">
                         Ipad
                     </NavLink>
+                    <NavLink className={cx('item')} to="/watch">
+                        Watch
+                    </NavLink>
                     <NavLink className={cx('item')} to="/mac">
                         Mac
-                    </NavLink>
-                    <NavLink className={cx('item')} to="/contact">
-                        Liên Hệ
                     </NavLink>
                 </div>
 
