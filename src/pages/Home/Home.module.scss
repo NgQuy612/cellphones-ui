@@ -1,3 +1,19 @@
-.top {
+.wrapper {
     padding-top: 70px;
+}
+
+.box-category {
+}
+
+.title-category {
+    text-align: center;
+    color: #fff;
+    font-size: 4rem;
+    font-weight: 400;
+    margin: 80px 0 40px 0;
+}
+
+.list-item-category {
+    display: flex;
+    justify-content: space-between;
 }

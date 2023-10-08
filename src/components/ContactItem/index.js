@@ -11,7 +11,7 @@ function Contact({ title, items }) {
             <ul className={cx('list-contact')}>
                 {items.map((item) => (
                     <li>
-                        <Link to={item.to} className={cx('item-contact')}>
+                        <Link to={item.to} className={cx('item-contact')} key={item.id}>
                             {item.value}
                         </Link>
                     </li>
