@@ -11,6 +11,17 @@
     }
 }
 
+.heart-item-card {
+    color: #f51a6e;
+    font-size: 3.2rem;
+    margin-left: 260px;
+    opacity: 0.5;
+}
+
+.heart-item-card:hover {
+    opacity: 0.3;
+}
+
 .name-item-card {
     text-align: center;
     font-size: 2.2rem;

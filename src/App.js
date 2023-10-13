@@ -5,6 +5,10 @@ import Iphone from './pages/Iphone';
 import Mac from './pages/Mac';
 import Watch from './pages/Watch';
 import DefaultLayout from './components/Layout/DefaultLayout';
+import IphoneProduct from './pages/DetailProduct/IphoneProduct';
+import IpadProduct from './pages/DetailProduct/IpadProduct';
+import MacProduct from './pages/DetailProduct/MacProduct';
+import WatchProduct from './pages/DetailProduct/WatchProduct';
 
 function App() {
     return (
@@ -28,10 +32,26 @@ function App() {
                         }
                     />
                     <Route
+                        path="/iphone/detail-iphone"
+                        element={
+                            <DefaultLayout>
+                                <IphoneProduct />
+                            </DefaultLayout>
+                        }
+                    />
+                    <Route
                         path="/ipad"
                         element={
                             <DefaultLayout>
                                 <Ipad />
+                            </DefaultLayout>
+                        }
+                    />
+                    <Route
+                        path="/ipad/detail-ipad"
+                        element={
+                            <DefaultLayout>
+                                <IpadProduct />
                             </DefaultLayout>
                         }
                     />
@@ -44,10 +64,26 @@ function App() {
                         }
                     />
                     <Route
+                        path="/mac/detail-mac"
+                        element={
+                            <DefaultLayout>
+                                <MacProduct />
+                            </DefaultLayout>
+                        }
+                    />
+                    <Route
                         path="/watch"
                         element={
                             <DefaultLayout>
                                 <Watch />
+                            </DefaultLayout>
+                        }
+                    />{' '}
+                    <Route
+                        path="/watch/detail-watch"
+                        element={
+                            <DefaultLayout>
+                                <WatchProduct />
                             </DefaultLayout>
                         }
                     />
