@@ -19,6 +19,19 @@ function ModelPage({ namePage, api }) {
             .catch((error) => console.error('Lỗi khi tải danh sách sản phẩm:', error));
     }, []);
 
+    const [wishlist, setWishlist] = useState([]);
+
+    useEffect(() => {
+        fetch('http://localhost:3000/wish_list') // Thay đổi URL thành đường dẫn API thực tế
+            .then((response) => response.json())
+            .then((data) => {
+                if (Array.isArray(data)) {
+                    setWishlist(data);
+                }
+            })
+            .catch((error) => console.error('Lỗi khi tải danh sách sản phẩm:', error));
+    }, []);
+
     return (
         <div className={cx('wrapper')}>
             <div className={cx('iner-wrapper')}>
@@ -28,7 +41,7 @@ function ModelPage({ namePage, api }) {
                         <FontAwesomeIcon className={cx('icon-title-card')} icon={faApple} />
                         <h3 className={cx('title-card')}>{namePage}</h3>
                     </div>
-
+                    {wishlist.map((item) => console.log(item.data.id))}
                     <div className={cx('list-item-card')}>
                         {products.map((product) => (
                             <Card
@@ -38,9 +51,9 @@ function ModelPage({ namePage, api }) {
                                 title={product.name}
                                 price={product.price}
                                 hot={product.hot ? true : false}
-                            >
-                                
-                            </Card>
+                                product={product}
+                                // addToWishlist={addToWishlist}
+                            ></Card>
                         ))}
                     </div>
                 </div>

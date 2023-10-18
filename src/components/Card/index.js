@@ -6,11 +6,11 @@ import { faHeart } from '@fortawesome/free-regular-svg-icons';
 
 const cx = classNames.bind(styles);
 
-function Card({ classname = 'item-card', to = '/', url, heart, title, price, hot }) {
+function Card({ classname = 'item-card', to = '/', url, heart, title, price, hot, product, addToWishlist }) {
     return (
         <Link to={to} className={cx('link-item-card')}>
             <div className={cx(`${classname}`)}>
-                {heart ? <FontAwesomeIcon className={cx('heart-item-card')} icon={faHeart}></FontAwesomeIcon> : <></>}
+                {heart ? <FontAwesomeIcon   className={cx('heart-item-card')} icon={faHeart} onClick={() => addToWishlist(product)} ></FontAwesomeIcon> : <></>}
                 <img className={cx('img-item-card')} src={url} alt="logo" />
                 <p className={cx('name-item-card')}>{title}</p>
                 {price ? <p className={cx('price-item-card')}>{price}</p> : <></>}

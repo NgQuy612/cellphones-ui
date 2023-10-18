@@ -32,7 +32,6 @@ function Search() {
                 }
                 // parse response data
                 res.json().then((data) => {
-                    console.log(data);
                     setSearchResult(data);
                     setLoading(false);
                 });
@@ -61,7 +60,9 @@ function Search() {
                     <PopperWrapper>
                         <h4 className={cx('search-title')}>Sản phẩm liên quan</h4>
                         {searchResult.map((result, index) => (
-                            <AccountItem key={index} data={result} />
+                            <div onClick={handleClear}>
+                                <AccountItem key={index} data={result} />
+                            </div>
                         ))}
                     </PopperWrapper>
                 </div>

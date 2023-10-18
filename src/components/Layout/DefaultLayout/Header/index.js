@@ -8,7 +8,7 @@ import { faHeart } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { Wrapper as PopperWrapper } from '~/components/Popper';
-import AccountItem from '~/components/AccountItem';
+import WishItem from '~/components/WishItem';
 import HeadlessTippy from '@tippyjs/react/headless';
 import './active.css';
 const cx = classNames.bind(styles);
@@ -23,10 +23,9 @@ function Header() {
     const [searchResult, setSearchResult] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost:3000/data`)
+        fetch(`http://localhost:3000/wish_list`)
             .then(function (res) {
                 res.json().then((data) => {
-                    console.log(data);
                     setSearchResult(data);
                 });
             })
@@ -86,7 +85,7 @@ function Header() {
                             <PopperWrapper>
                                 <h4 className={cx('wishList-title')}>Wish List</h4>
                                 {searchResult.map((result) => (
-                                    <AccountItem key={result.id} data={result} />
+                                    <WishItem key={result.id} data={result} />
                                 ))}
                             </PopperWrapper>
                         </div>
