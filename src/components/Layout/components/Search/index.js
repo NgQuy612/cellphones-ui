@@ -4,8 +4,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import HeadlessTippy from '@tippyjs/react/headless';
 import classNames from 'classnames/bind';
 import { Wrapper as PopperWrapper } from '~/components/Popper';
-import AccountItem from '~/components/AccountItem';
 import styles from './Search.module.scss';
+import TippyItem from '~/components/TippyItem';
 
 const cx = classNames.bind(styles);
 
@@ -60,8 +60,8 @@ function Search() {
                     <PopperWrapper>
                         <h4 className={cx('search-title')}>Sản phẩm liên quan</h4>
                         {searchResult.map((result, index) => (
-                            <div onClick={handleClear}>
-                                <AccountItem key={index} data={result} />
+                            <div key={index} onClick={handleClear}>
+                                <TippyItem product={result} />
                             </div>
                         ))}
                     </PopperWrapper>

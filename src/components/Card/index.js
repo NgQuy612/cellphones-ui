@@ -7,10 +7,25 @@ import { faHeart } from '@fortawesome/free-regular-svg-icons';
 const cx = classNames.bind(styles);
 
 function Card({ classname = 'item-card', to = '/', url, heart, title, price, hot, product, addToWishlist }) {
+    const handleHeartClick = (e) => {
+        e.preventDefault();
+        addToWishlist(product); // Xử lý thêm sản phẩm vào wishlist
+        window.location.reload();
+    };
+
     return (
         <Link to={to} className={cx('link-item-card')}>
             <div className={cx(`${classname}`)}>
-                {heart ? <FontAwesomeIcon   className={cx('heart-item-card')} icon={faHeart} onClick={() => addToWishlist(product)} ></FontAwesomeIcon> : <></>}
+                {heart ? (
+                    <FontAwesomeIcon
+                        className={cx('heart-item-card')}
+                        icon={faHeart}
+                        //onClick={() => addToWishlist(product)}
+                        onClick={handleHeartClick}
+                    ></FontAwesomeIcon>
+                ) : (
+                    <></>
+                )}
                 <img className={cx('img-item-card')} src={url} alt="logo" />
                 <p className={cx('name-item-card')}>{title}</p>
                 {price ? <p className={cx('price-item-card')}>{price}</p> : <></>}

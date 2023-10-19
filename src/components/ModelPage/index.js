@@ -21,16 +21,27 @@ function ModelPage({ namePage, api }) {
 
     const [wishlist, setWishlist] = useState([]);
 
-    useEffect(() => {
-        fetch('http://localhost:3000/wish_list') // Thay đổi URL thành đường dẫn API thực tế
-            .then((response) => response.json())
-            .then((data) => {
-                if (Array.isArray(data)) {
-                    setWishlist(data);
+    const addToWishlist = (data) => {
+        fetch('http://localhost:3000/wish_list', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data), // Chuyển đổi dữ liệu sản phẩm thành chuỗi JSON
+        })
+            .then((response) => {
+                if (response.ok) {
+                    setWishlist([...wishlist, data]);
+                } else {
+                    // Xử lý khi yêu cầu thất bại
+                    console.error('Lỗi khi thêm sản phẩm vào danh sách yêu thích.');
                 }
             })
-            .catch((error) => console.error('Lỗi khi tải danh sách sản phẩm:', error));
-    }, []);
+            .catch((error) => {
+                // Xử lý lỗi kết nối
+                console.error('Lỗi kết nối: ', error);
+            });
+    };
 
     return (
         <div className={cx('wrapper')}>
@@ -41,18 +52,19 @@ function ModelPage({ namePage, api }) {
                         <FontAwesomeIcon className={cx('icon-title-card')} icon={faApple} />
                         <h3 className={cx('title-card')}>{namePage}</h3>
                     </div>
-                    {wishlist.map((item) => console.log(item.data.id))}
+
                     <div className={cx('list-item-card')}>
                         {products.map((product) => (
                             <Card
+                                key={product.id}
                                 heart
                                 to={product.to}
-                                url={product.url}
+                                url={product.color_url[0].url}
                                 title={product.name}
-                                price={product.price}
+                                price={product.local_price[0].price}
                                 hot={product.hot ? true : false}
                                 product={product}
-                                // addToWishlist={addToWishlist}
+                                addToWishlist={addToWishlist}
                             ></Card>
                         ))}
                     </div>

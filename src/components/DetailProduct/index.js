@@ -73,6 +73,7 @@ function DetailProduct({ api }) {
                     <div className={cx('color-product')}>
                         {colorUrl.map((item, index) => (
                             <ColorButton
+                                key={index}
                                 color={item.color}
                                 onClick={() => handleColorChange(`${item.name_color}`, `${item.url}`)}
                             ></ColorButton>
