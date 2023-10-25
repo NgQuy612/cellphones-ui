@@ -2,6 +2,7 @@ import styles from './DetailProduct.module.scss';
 import classNames from 'classnames/bind';
 import styled from 'styled-components';
 import { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 
 const cx = classNames.bind(styles);
 
@@ -14,8 +15,9 @@ const ColorButton = styled.button`
     box-shadow: inset 0 3px 4px rgba(0, 0, 0, 0.25);
     cursor: pointer;
 `;
-
-function DetailProduct({ api }) {
+//{ api } function DetailProduct({ api })
+function DetailProduct({ typeModel }) {
+    const { id } = useParams();
     const [product, setProduct] = useState([]);
     const [localPrice, setLocalPrice] = useState([]);
     const [colorUrl, setColorUrl] = useState([]);
@@ -25,7 +27,7 @@ function DetailProduct({ api }) {
     );
     const [currentColor, setCurrentColor] = useState('Không tìm thấy');
     useEffect(() => {
-        fetch(api)
+        fetch(`http://localhost:3000/${typeModel}/${id}`)
             .then((response) => response.json())
             .then((data) => {
                 setColorUrl(data.color_url);

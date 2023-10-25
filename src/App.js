@@ -32,7 +32,7 @@ function App() {
                         }
                     />
                     <Route
-                        path="/iphone/detail-iphone"
+                        path="/iphone/detail-iphone/:id"
                         element={
                             <DefaultLayout>
                                 <IphoneProduct />
@@ -48,7 +48,7 @@ function App() {
                         }
                     />
                     <Route
-                        path="/ipad/detail-ipad"
+                        path="/ipad/detail-ipad/:id"
                         element={
                             <DefaultLayout>
                                 <IpadProduct />
@@ -64,7 +64,7 @@ function App() {
                         }
                     />
                     <Route
-                        path="/mac/detail-mac"
+                        path="/mac/detail-mac/:id"
                         element={
                             <DefaultLayout>
                                 <MacProduct />
@@ -80,7 +80,7 @@ function App() {
                         }
                     />{' '}
                     <Route
-                        path="/watch/detail-watch"
+                        path="/watch/detail-watch/:id"
                         element={
                             <DefaultLayout>
                                 <WatchProduct />
