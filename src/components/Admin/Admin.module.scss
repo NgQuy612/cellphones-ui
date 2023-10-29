@@ -1,0 +1,35 @@
+.title-wrapper {
+    color: #fe2c55;
+    padding-left: 20px;
+}
+
+.container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.tabbar {
+    width: 240px;
+    border-radius: 8px;
+    background-color: #000000;
+    color: #ffffff;
+    padding: 16px;
+    font-size: 2rem;
+    cursor: pointer;
+    div {
+        border-radius: 5px;
+    }
+    p {
+        padding: 10px;
+    }
+}
+
+.content {
+    flex: 1;
+    padding: 20px;
+    margin-left: 14px;
+    background-color: #f4f4f4;
+    border-radius: 10px;
+}

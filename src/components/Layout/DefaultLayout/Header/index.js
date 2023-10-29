@@ -11,6 +11,8 @@ import { Wrapper as PopperWrapper } from '~/components/Popper';
 import HeadlessTippy from '@tippyjs/react/headless';
 import './active.css';
 import TippyItem from '~/components/TippyItem';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const cx = classNames.bind(styles);
 
 function Header() {
@@ -22,7 +24,7 @@ function Header() {
 
     const [product, setProduct] = useState([]);
 
-    useEffect(() => {
+    const fetchProduct = () => {
         fetch('http://localhost:3000/wish_list') // Thay đổi URL thành đường dẫn API thực tế
             .then((response) => response.json())
             .then((data) => {
@@ -31,7 +33,22 @@ function Header() {
                 }
             })
             .catch((error) => console.error('Lỗi khi tải danh sách sản phẩm:', error));
+    };
+
+    useEffect(() => {
+        fetchProduct();
     }, []);
+
+    // useEffect(() => {
+    //     fetch('http://localhost:3000/wish_list') // Thay đổi URL thành đường dẫn API thực tế
+    //         .then((response) => response.json())
+    //         .then((data) => {
+    //             if (Array.isArray(data)) {
+    //                 setProduct(data);
+    //             }
+    //         })
+    //         .catch((error) => console.error('Lỗi khi tải danh sách sản phẩm:', error));
+    // }, []);
 
     const handleError = () => {
         setFallback(images.noImage);
@@ -47,7 +64,11 @@ function Header() {
             .then((response) => {
                 if (response.ok) {
                     // Xóa sản phẩm khỏi danh sách ở phía giao diện hoặc thực hiện các thao tác cần thiết khác.
-                    console.log('Sản phẩm đã được xóa thành công.');
+                    toast.success('Sản phẩm đã được xóa thành công.', {
+                        position: 'top-right', // Vị trí hiển thị
+                        autoClose: 1000, // Tự động đóng sau 3 giây
+                    });
+                    fetchProduct();
                 } else {
                     console.error('Lỗi khi xóa sản phẩm khỏi REST API.');
                 }
@@ -59,6 +80,7 @@ function Header() {
 
     return (
         <header className={cx('wrapper')}>
+            <ToastContainer />
             <div className={cx('inner')}>
                 <div className={cx('logo')}>
                     <Link to="/">

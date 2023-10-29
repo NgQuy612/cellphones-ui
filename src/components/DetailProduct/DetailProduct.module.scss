@@ -50,6 +50,9 @@
     &:hover {
         opacity: 0.6;
     }
+    &.active {
+        border: 2px solid #fe2c55;
+    }
 }
 
 .title-color-product {
@@ -80,5 +83,62 @@
     cursor: pointer;
     &:hover {
         color: #2817c6;
+    }
+}
+
+.btn-show-form {
+    width: 500px;
+    height: 50px;
+    border-bottom: 1px solid #000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fe2c55;
+    padding: 10px 20px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #fff;
+    p {
+        font-size: 2.2rem;
+    }
+}
+
+.form-buy {
+    width: 500px;
+    //margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f5f5f5;
+}
+
+.label-form-buy {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type='text'],
+input[type='email'] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.btn-form-buy {
+    background-color: #fe2c55;
+    color: #fff;
+    margin-top: 10px;
+    padding: 10px 60px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 2.2rem;
+    &:hover {
+        opacity: 0.8;
     }
 }

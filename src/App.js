@@ -9,12 +9,14 @@ import IphoneProduct from './pages/DetailProduct/IphoneProduct';
 import IpadProduct from './pages/DetailProduct/IpadProduct';
 import MacProduct from './pages/DetailProduct/MacProduct';
 import WatchProduct from './pages/DetailProduct/WatchProduct';
+import Admin from './components/Admin';
 
 function App() {
     return (
         <Router>
             <div className="App">
                 <Routes>
+                    <Route path="/admin" element={<Admin />} />
                     <Route
                         path="/"
                         element={

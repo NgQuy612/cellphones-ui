@@ -1,0 +1,37 @@
+.box-order {
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid #948f8f;
+    padding: 10px;
+    align-items: center;
+}
+
+.box-module {
+    width: 810px;
+    display: flex;
+    align-items: center;
+}
+
+.img-detail-module {
+    width: 100px;
+    margin: 0 10px;
+}
+
+.box-customer {
+    margin: 0 20px;
+    width: 500px;
+}
+
+.box-status {
+    flex: 1;
+}
+
+.btn-status {
+    background-color: #fe2c55;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    width: 120px;
+    //cursor: pointer;
+    opacity: 0.6;
+}

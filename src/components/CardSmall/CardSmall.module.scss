@@ -1,0 +1,23 @@
+.item-category {
+    width: 240px;
+    padding: 10px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #323232;
+    border-radius: 24px;
+    margin: 20px;
+    &:hover {
+        box-shadow: -4px -4px 8px rgba(134, 134, 134, 0.2), 4px 4px 8px rgba(28, 28, 28, 0.4);
+    }
+    .img-item-card {
+        width: 200px;
+    }
+    .name-item-card {
+        padding: 0 10px;
+        margin-bottom: 10px;
+        text-align: center;
+        font-size: 2.2rem;
+        color: #fff;
+    }
+}

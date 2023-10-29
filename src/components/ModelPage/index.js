@@ -17,7 +17,7 @@ function ModelPage({ namePage, api }) {
             .then((response) => response.json())
             .then((data) => setProducts(data))
             .catch((error) => console.error('Lỗi khi tải danh sách sản phẩm:', error));
-    }, []);
+    }, [api]);
 
     const [wishlist, setWishlist] = useState([]);
 
@@ -57,7 +57,6 @@ function ModelPage({ namePage, api }) {
                         {products.map((product) => (
                             <Card
                                 key={product.id}
-                                heart
                                 to={product.to}
                                 url={product.color_url[0].url}
                                 title={product.name}

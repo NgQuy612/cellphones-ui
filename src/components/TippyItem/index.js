@@ -10,7 +10,7 @@ function TippyItem({ product, removeWishlist, wishList }) {
     const handleClearClick = (e) => {
         e.preventDefault();
         removeWishlist(product.id); // Xử lý thêm sản phẩm vào wishlist
-        window.location.reload();
+        //window.location.reload();
     };
 
     return (

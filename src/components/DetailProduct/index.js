@@ -3,6 +3,10 @@ import classNames from 'classnames/bind';
 import styled from 'styled-components';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 
 const cx = classNames.bind(styles);
 
@@ -22,6 +26,7 @@ function DetailProduct({ typeModel }) {
     const [localPrice, setLocalPrice] = useState([]);
     const [colorUrl, setColorUrl] = useState([]);
     const [currentPrice, setCurrentPrice] = useState('000.000.000vnđ');
+    const [currentLocal, setCurrentLocal] = useState('256GB');
     const [imageURL, setImageURL] = useState(
         'https://img.tgdd.vn/imgt/f_webp,fit_outside,quality_100/https://cdn.tgdd.vn/Products/Images/42/305658/s16/iphone-15-pro-max-blue-thumbtz-650x650.png',
     );
@@ -34,13 +39,21 @@ function DetailProduct({ typeModel }) {
                 setLocalPrice(data.local_price);
                 setProduct(data);
                 setCurrentPrice(data.local_price[0].price);
+                setCurrentLocal(data.local_price[0].local);
                 setImageURL(data.color_url[0].url);
                 setCurrentColor(data.color_url[0].name_color);
             })
             .catch((error) => console.error('Lỗi khi tải danh sách sản phẩm:', error));
-    }, []);
+    }, [id, typeModel]);
 
-    const handlePriceChange = (newPrice) => {
+    const [activeButton, setActiveButton] = useState(null);
+    // Hàm xử lý khi nút được kích hoạt
+    const handleButtonActivation = (index) => {
+        setActiveButton(index);
+    };
+
+    const handleLocalChange = (newLocal, newPrice) => {
+        setCurrentLocal(newLocal);
         setCurrentPrice(newPrice);
     };
 
@@ -49,11 +62,69 @@ function DetailProduct({ typeModel }) {
         setImageURL(newImage);
     };
 
+    const [formData, setFormData] = useState({
+        name: '',
+        phoneNumber: '',
+        address: '',
+        email: '',
+    });
+
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        setFormData({ ...formData, [name]: value });
+    };
+
+    const [showForm, setShowForm] = useState(false);
+
+    const toggleForm = () => {
+        setShowForm(!showForm);
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        try {
+            const dataToSend = {
+                name: formData.name,
+                phoneNumber: formData.phoneNumber,
+                address: formData.address,
+                email: formData.email,
+                nameModel: product.name,
+                color: currentColor,
+                local: currentLocal,
+                price: currentPrice,
+                image: imageURL,
+                status: 'Processing',
+            };
+
+            const response = await fetch('http://localhost:3000/buy_product', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(dataToSend),
+            });
+
+            if (response.ok) {
+                setShowForm(!showForm);
+                toast.success('Mua hàng thành công!', {
+                    position: 'top-right', // Vị trí hiển thị
+                    autoClose: 3000, // Tự động đóng sau 3 giây
+                });
+            }
+        } catch (error) {
+            toast.error('Không thành công!', {
+                position: 'top-right',
+                autoClose: 3000,
+            });
+        }
+    };
+
     return (
         <div className={cx('wrapper')}>
+            <ToastContainer />
             <div className={cx('inner-wrapper')}>
                 <div className={cx('img-product')}>
-                    <img src={imageURL} alt="image iphone" />
+                    <img src={imageURL} alt="iphone" />
                 </div>
                 <div className={cx('detail-product')}>
                     <h1 className={cx('title-product')}>{product.name}</h1>
@@ -64,8 +135,13 @@ function DetailProduct({ typeModel }) {
                         {localPrice.map((item, index) => (
                             <button
                                 key={index}
-                                className={cx('btn-local-product')}
-                                onClick={() => handlePriceChange(`${item.price}`)}
+                                className={cx('btn-local-product', {
+                                    active: index === activeButton,
+                                })}
+                                onClick={() => {
+                                    handleLocalChange(`${item.local}`, `${item.price}`);
+                                    handleButtonActivation(index);
+                                }}
                             >
                                 {item.local}
                             </button>
@@ -81,11 +157,64 @@ function DetailProduct({ typeModel }) {
                             ></ColorButton>
                         ))}
                     </div>
+
                     <img
                         className={cx('img-policy-product')}
                         src="https://cdn.tgdd.vn/2023/10/banner/Frame-482029--1--920x230.png"
                         alt="img-policy"
                     />
+                    <div className={cx('box-form-buy')}>
+                        <div className={cx('btn-show-form')} onClick={toggleForm}>
+                            <p> Mua Ngay</p>
+                            <FontAwesomeIcon icon={faChevronDown} />
+                        </div>
+                        {showForm && (
+                            <form className={cx('form-buy')} onSubmit={handleSubmit}>
+                                <div>
+                                    <label className={cx('label-form-buy')}>Tên:</label>
+                                    <input
+                                        type="text"
+                                        name="name"
+                                        value={formData.name}
+                                        onChange={handleInputChange}
+                                        required
+                                    />
+                                </div>
+                                <div>
+                                    <label className={cx('label-form-buy')}>Số điện thoại:</label>
+                                    <input
+                                        type="text"
+                                        name="phoneNumber"
+                                        value={formData.phoneNumber}
+                                        onChange={handleInputChange}
+                                        required
+                                    />
+                                </div>
+                                <div>
+                                    <label className={cx('label-form-buy')}>Email:</label>
+                                    <input
+                                        type="email"
+                                        name="email"
+                                        value={formData.email}
+                                        onChange={handleInputChange}
+                                    />
+                                </div>
+                                <div>
+                                    <label className={cx('label-form-buy')}>Address:</label>
+                                    <input
+                                        type="text"
+                                        name="address"
+                                        value={formData.address}
+                                        onChange={handleInputChange}
+                                    />
+                                </div>
+                                <button className={cx('btn-form-buy')} type="submit">
+                                    Đặt Hàng
+                                </button>
+                            </form>
+                        )}
+                    </div>
+
                     <div className={cx('polyci-product')}>
                         <ul className={cx('list-polyci-product')}>
                             <li className={cx('item-polyci-product')}>

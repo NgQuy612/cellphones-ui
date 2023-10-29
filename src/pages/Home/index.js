@@ -6,6 +6,7 @@ import Card from '~/components/Card';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faApple } from '@fortawesome/free-brands-svg-icons';
 import { Link, Element } from 'react-scroll';
+import CardSmall from '~/components/CardSmall';
 
 const cx = classNames.bind(styles);
 function Home() {
@@ -16,29 +17,25 @@ function Home() {
                 <div className={cx('box-card')}>
                     <div className={cx('list-item-card')}>
                         <Link to="iphone" smooth={true} duration={500}>
-                            <Card
-                                classname="item-category"
+                            <CardSmall
                                 url="https://img.tgdd.vn/imgt/f_webp,fit_outside,quality_100/https://cdn.tgdd.vn/mwgcart/topzone/images/desktop/IP_Desktop.png"
                                 title="Iphone"
                             />
                         </Link>
                         <Link to="ipad" smooth={true} duration={500}>
-                            <Card
-                                classname="item-category"
+                            <CardSmall
                                 url="https://img.tgdd.vn/imgt/f_webp,fit_outside,quality_100/https://cdn.tgdd.vn/mwgcart/topzone/images/desktop/IPad_Desktop.png"
                                 title="Ipad"
                             />
                         </Link>
                         <Link to="mac" smooth={true} duration={500}>
-                            <Card
-                                classname="item-category"
+                            <CardSmall
                                 url="https://img.tgdd.vn/imgt/f_webp,fit_outside,quality_100/https://cdn.tgdd.vn/mwgcart/topzone/images/desktop/Mac_Desktop.png"
                                 title="Mac"
                             />
                         </Link>
                         <Link to="watch" smooth={true} duration={500}>
-                            <Card
-                                classname="item-category"
+                            <CardSmall
                                 url="https://img.tgdd.vn/imgt/f_webp,fit_outside,quality_100/https://cdn.tgdd.vn/mwgcart/topzone/images/desktop/Watch_Desktop.png"
                                 title="Watch"
                             />
