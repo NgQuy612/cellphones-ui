@@ -200,7 +200,7 @@ function DetailProduct({ typeModel }) {
                                     />
                                 </div>
                                 <div>
-                                    <label className={cx('label-form-buy')}>Address:</label>
+                                    <label className={cx('label-form-buy')}>Địa chỉ:</label>
                                     <input
                                         type="text"
                                         name="address"

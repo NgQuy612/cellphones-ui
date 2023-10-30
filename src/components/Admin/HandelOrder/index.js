@@ -44,7 +44,6 @@ function HandelOrder() {
     const statusMap = {
         Processing: 'Delivered',
         Delivered: 'Completed',
-        // Thêm các ánh xạ khác nếu cần
     };
 
     const handleStatusUpdate = (orderId, currentStatus) => {

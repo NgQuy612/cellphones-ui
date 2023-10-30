@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from 'react';
-import { faXmark, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import HeadlessTippy from '@tippyjs/react/headless';
 import classNames from 'classnames/bind';
@@ -13,7 +13,6 @@ function Search() {
     const [searchValue, setSearchValue] = useState('');
     const [searchResult, setSearchResult] = useState([]);
     const [showResult, setShowResult] = useState(true);
-    const [loading, setLoading] = useState(false);
 
     const inputRef = useRef();
 
@@ -22,8 +21,6 @@ function Search() {
             setSearchResult([]);
             return;
         }
-
-        setLoading(true);
         fetch(`http://localhost:3000/data?q=${encodeURIComponent(searchValue)}`)
             .then(function (res) {
                 if (res.status !== 200) {
@@ -33,7 +30,6 @@ function Search() {
                 // parse response data
                 res.json().then((data) => {
                     setSearchResult(data);
-                    setLoading(false);
                 });
             })
             .catch((err) => {
@@ -81,11 +77,6 @@ function Search() {
                     onChange={(e) => setSearchValue(e.target.value)}
                     onFocus={() => setShowResult(true)}
                 />
-                {!!searchValue && !loading && (
-                    <button className={cx('clear-btn')} onClick={handleClear}>
-                        <FontAwesomeIcon icon={faXmark} />
-                    </button>
-                )}
             </div>
         </HeadlessTippy>
     );

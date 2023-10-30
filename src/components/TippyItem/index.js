@@ -9,8 +9,7 @@ const cx = classNames.bind(styles);
 function TippyItem({ product, removeWishlist, wishList }) {
     const handleClearClick = (e) => {
         e.preventDefault();
-        removeWishlist(product.id); // Xử lý thêm sản phẩm vào wishlist
-        //window.location.reload();
+        removeWishlist(product.id); 
     };
 
     return (

@@ -19,8 +19,6 @@ function ModelPage({ namePage, api }) {
             .catch((error) => console.error('Lỗi khi tải danh sách sản phẩm:', error));
     }, [api]);
 
-    const [wishlist, setWishlist] = useState([]);
-
     const addToWishlist = (data) => {
         fetch('http://localhost:3000/wish_list', {
             method: 'POST',
@@ -31,10 +29,7 @@ function ModelPage({ namePage, api }) {
         })
             .then((response) => {
                 if (response.ok) {
-                    setWishlist([...wishlist, data]);
-                } else {
-                    // Xử lý khi yêu cầu thất bại
-                    console.error('Lỗi khi thêm sản phẩm vào danh sách yêu thích.');
+                    console.log('Thêm sản phẩm thành công');
                 }
             })
             .catch((error) => {
@@ -57,7 +52,7 @@ function ModelPage({ namePage, api }) {
                         {products.map((product) => (
                             <Card
                                 key={product.id}
-                                to={product.to}
+                                to={product.to} ///iphone/detail-iphone/1
                                 url={product.color_url[0].url}
                                 title={product.name}
                                 price={product.local_price[0].price}
