@@ -1,3 +1,7 @@
+.link-box-order {
+    color: #3e3e3f;
+}
+
 .box-order {
     display: flex;
     justify-content: space-between;
@@ -24,4 +28,15 @@
 
 .box-status {
     flex: 1;
+    display: flex;
+}
+
+.clear-status {
+    background-color: #ff0000;
+    color: white;
+    margin: 0 10px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    width: 70px;
+    cursor: pointer;
 }

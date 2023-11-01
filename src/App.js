@@ -10,6 +10,7 @@ import IpadProduct from './pages/DetailProduct/IpadProduct';
 import MacProduct from './pages/DetailProduct/MacProduct';
 import WatchProduct from './pages/DetailProduct/WatchProduct';
 import Admin from './components/Admin';
+import DetailOrder from './components/Admin/DetailOrder';
 
 function App() {
     return (
@@ -17,6 +18,7 @@ function App() {
             <div className="App">
                 <Routes>
                     <Route path="/admin" element={<Admin />} />
+                    <Route path="/buy_product/:id" element={<DetailOrder />} />
                     <Route
                         path="/"
                         element={

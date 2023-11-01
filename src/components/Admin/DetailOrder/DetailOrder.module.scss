@@ -1,0 +1,132 @@
+.wrapper {
+    // background-color: #dbdbdb;
+}
+
+.title-wrapper {
+    color: #fe2c55;
+    margin: 30px;
+}
+
+.inner-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #dbdbdb;
+    padding: 90px 30px;
+}
+
+.form-buy {
+    width: 500px;
+
+    padding: 40px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f5f5f5;
+}
+
+.label-form-buy {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type='text'],
+input[type='email'],
+select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.btn-form-buy {
+    background-color: #fe2c55;
+    color: #fff;
+    margin-top: 10px;
+    padding: 10px 60px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 2.2rem;
+    &:hover {
+        opacity: 0.8;
+    }
+}
+
+.form-cus {
+    width: 550px;
+    margin-left: 50px;
+}
+
+.title-cus {
+    font-size: 2.8rem;
+    span {
+        color: #fe2c55;
+    }
+}
+
+.text-cus {
+    margin: 10px 0;
+    font-size: 2.6rem;
+    overflow-wrap: break-word;
+    span {
+        color: #fe2c55;
+    }
+}
+
+.wrapper-module {
+    flex: 1;
+}
+
+.inner-wrapper-module {
+    display: flex;
+    align-items: center;
+}
+
+.img-product {
+    width: 480px;
+}
+
+.name-product {
+    color: #2f3033;
+    font-size: 3.2rem;
+}
+
+.price-product {
+    padding: 4px 0;
+    color: #2f3033;
+    font-size: 3rem;
+    font-weight: 600;
+}
+
+.title-local-product {
+    color: #2f3033;
+    font-size: 2rem;
+}
+
+.local-product {
+    margin: 10px 0 18px 0;
+    display: flex;
+}
+
+.btn-local-product {
+    width: 70px;
+    margin: 10px 0 16px 0;
+    color: #dbdbdb;
+    background: #2f3033;
+    border-radius: 8px;
+    padding: 4px 0px;
+    text-align: center;
+    font-size: 1.6rem;
+    line-height: 2;
+    cursor: pointer;
+    &:hover {
+        opacity: 0.6;
+    }
+}
+
+.title-color-product {
+    color: #2f3033;
+    font-size: 2rem;
+}

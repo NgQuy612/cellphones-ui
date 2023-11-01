@@ -21,6 +21,8 @@ const ColorButton = styled.button`
 `;
 //{ api } function DetailProduct({ api })
 function DetailProduct({ typeModel }) {
+    const currentTime = new Date();
+    const currentTimeString = currentTime.toLocaleString();
     const { id } = useParams();
     const [product, setProduct] = useState([]);
     const [localPrice, setLocalPrice] = useState([]);
@@ -93,6 +95,7 @@ function DetailProduct({ typeModel }) {
                 local: currentLocal,
                 price: currentPrice,
                 image: imageURL,
+                date: currentTimeString,
                 status: 'Processing',
             };
 
@@ -107,8 +110,8 @@ function DetailProduct({ typeModel }) {
             if (response.ok) {
                 setShowForm(!showForm);
                 toast.success('Mua hàng thành công!', {
-                    position: 'top-right', 
-                    autoClose: 3000, 
+                    position: 'top-right',
+                    autoClose: 3000,
                 });
             }
         } catch (error) {
@@ -126,6 +129,7 @@ function DetailProduct({ typeModel }) {
                 <div className={cx('img-product')}>
                     <img src={imageURL} alt="iphone" />
                 </div>
+
                 <div className={cx('detail-product')}>
                     <h1 className={cx('title-product')}>{product.name}</h1>
                     <p className={cx('ready-product')}>{product.ready ? 'Còn hàng' : 'Hết hàng'}</p>
