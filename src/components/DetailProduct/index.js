@@ -107,8 +107,8 @@ function DetailProduct({ typeModel }) {
             if (response.ok) {
                 setShowForm(!showForm);
                 toast.success('Mua hàng thành công!', {
-                    position: 'top-right', // Vị trí hiển thị
-                    autoClose: 3000, // Tự động đóng sau 3 giây
+                    position: 'top-right', 
+                    autoClose: 3000, 
                 });
             }
         } catch (error) {

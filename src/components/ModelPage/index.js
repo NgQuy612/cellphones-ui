@@ -12,8 +12,7 @@ function ModelPage({ namePage, api }) {
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
-        // Sử dụng fetch để tải danh sách sản phẩm từ một API hoặc nguồn dữ liệu khác.
-        fetch(api) // Thay đổi URL thành đường dẫn API thực tế
+        fetch(api) 
             .then((response) => response.json())
             .then((data) => setProducts(data))
             .catch((error) => console.error('Lỗi khi tải danh sách sản phẩm:', error));
@@ -25,7 +24,7 @@ function ModelPage({ namePage, api }) {
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify(data), // Chuyển đổi dữ liệu sản phẩm thành chuỗi JSON
+            body: JSON.stringify(data), 
         })
             .then((response) => {
                 if (response.ok) {
@@ -33,7 +32,6 @@ function ModelPage({ namePage, api }) {
                 }
             })
             .catch((error) => {
-                // Xử lý lỗi kết nối
                 console.error('Lỗi kết nối: ', error);
             });
     };
