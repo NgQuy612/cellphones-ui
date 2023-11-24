@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
+import emailjs from '@emailjs/browser';
 
 const cx = classNames.bind(styles);
 
@@ -49,7 +50,7 @@ function DetailProduct({ typeModel }) {
     }, [id, typeModel]);
 
     const [activeButton, setActiveButton] = useState(null);
-    // Hàm xử lý khi nút được kích hoạt
+
     const handleButtonActivation = (index) => {
         setActiveButton(index);
     };
@@ -120,6 +121,21 @@ function DetailProduct({ typeModel }) {
                 autoClose: 3000,
             });
         }
+
+        const templateParams = {
+            to_name: `${formData.name} - ${formData.phoneNumber} - ${formData.address}`,
+            from_email: formData.email,
+            message: `Tên sản phẩm: ${product.name} - Màu sắc: ${currentColor} - Dung lượng: ${currentLocal} - Thời gian: ${currentTimeString}`,
+        };
+
+        emailjs.send('service_fjdh7o4', 'template_3et8x3m', templateParams, 'e-hNvloNNZSoKtBD4').then(
+            (result) => {
+                console.log(result.text);
+            },
+            (error) => {
+                console.log(error.text);
+            },
+        );
     };
 
     return (
